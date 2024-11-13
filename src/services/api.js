@@ -13,3 +13,13 @@ export const createTurn = async (turnData) => {
     console.error("Error al enviar los datos:", error);
   }
 };
+
+export const createPerfil = async (perfilData) => {
+  try {
+    const response = await api.post("/auth/register", perfilData);
+    console.log("Respuesta desde el servidor:", response.data);
+    return response;
+  } catch (error) {
+    console.error("Error al enviar los datos:", error);
+  }
+};
