@@ -23,3 +23,12 @@ export const createPerfil = async (perfilData) => {
     console.error("Error al enviar los datos:", error);
   }
 };
+
+export async function login(credentials) {
+  try {
+    const response = await api.post("/auth/login", credentials);
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data.message : "Error de conexión";
+  }
+}

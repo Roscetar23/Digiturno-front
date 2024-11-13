@@ -51,6 +51,12 @@ export default function CreatePerfilForm() {
           required
         />
 
+        <label>Rol</label>
+        <select {...register("role")} required>
+          <option value="radicacion">Radicación</option>
+          <option value="validacion">Validación</option>
+        </select>
+
         <button type="submit">Crear Perfil</button>
       </form>
 
