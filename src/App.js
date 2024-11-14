@@ -4,6 +4,7 @@ import TurnList from "./components/turnList";
 import CreatePerfilForm from "./components/createPerfilForm";
 import LoginForm from "./components/loginForm";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import TakeTurn from "./components/turnScreen";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/lista-turno" element={<TurnList />} />
           <Route path="/crear-perfil" element={<CreatePerfilForm />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/atencion-turno" element={<TakeTurn />} />
         </Routes>
       </div>
     </Router>

@@ -32,3 +32,36 @@ export async function login(credentials) {
     throw error.response ? error.response.data.message : "Error de conexión";
   }
 }
+
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export const getLastTurn = async (turnType) => {
+  try {
+    const response = await api.get(`/turnos/lastTurn${turnType}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener el último turno:", error);
+    throw error;
+  }
+};
+
+export const deleteTurn = async (turnType, turnId) => {
+  try {
+    const response = await api.delete(`/turnos/${turnType}/${turnId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al borrar el turno:", error);
+    throw error;
+  }
+};

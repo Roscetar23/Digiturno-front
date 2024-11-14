@@ -15,7 +15,7 @@ export default function LoginForm() {
     try {
       const data = await login({ email, password });
       localStorage.setItem("token", data.token);
-      navigate("/");
+      navigate("/atencion-turno");
     } catch (err) {
       setError(err || "Error al iniciar sesión");
     }
